@@ -1,7 +1,11 @@
 package hello.core.member;
+import hello.core.order.member.Grade;
+import hello.core.order.member.Member;
+import hello.core.order.member.MemberService;
+import hello.core.order.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 class MemberServiceTest {
     MemberService memberService = new MemberServiceImpl();
     @Test

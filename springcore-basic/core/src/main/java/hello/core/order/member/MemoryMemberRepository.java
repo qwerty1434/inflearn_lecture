@@ -1,4 +1,4 @@
-package hello.core.member;
+package hello.core.order.member;
 import java.util.HashMap;
 import java.util.Map;
 public class MemoryMemberRepository implements MemberRepository {

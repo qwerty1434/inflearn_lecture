@@ -1,4 +1,4 @@
-package hello.core.member;
+package hello.core.order.member;
 public interface MemberService {
     void join(Member member);
     Member findMember(Long memberId);

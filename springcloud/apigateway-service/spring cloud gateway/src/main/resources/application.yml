@@ -35,7 +35,6 @@ spring:
           predicates:
             - Path=/order-service/**
 
-
         - id: first-service
           uri: lb://MY-FIRST-SERVICE
           predicates:

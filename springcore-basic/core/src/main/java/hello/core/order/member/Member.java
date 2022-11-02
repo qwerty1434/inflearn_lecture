@@ -1,4 +1,4 @@
-package hello.core.member;
+package hello.core.order.member;
 public class Member {
     private Long id;
     private String name;

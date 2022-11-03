@@ -1,13 +1,16 @@
 package hello.core.member;
-import hello.core.order.member.Grade;
-import hello.core.order.member.Member;
-import hello.core.order.member.MemberService;
-import hello.core.order.member.MemberServiceImpl;
+import hello.core.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MemberServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
     @Test
     void join() {
         //given

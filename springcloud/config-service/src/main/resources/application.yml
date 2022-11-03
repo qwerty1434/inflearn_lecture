@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+#          uri: file:///C:/Users/SSAFY/Desktop/inflearn_lecture/springcloud/git-local-repo
+          uri: file:///C:/Users/SSAFY/Desktop/git-local-repo

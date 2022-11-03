@@ -62,7 +62,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = Jwts.builder()
                 .setSubject(userDetails.getUserId()) // 무엇으로 토큰을 만들건지
                 .setExpiration(new Date(System.currentTimeMillis()
-                        + Long.parseLong(env.getProperty("token.expiration_time")))) // 유효기간
+                        + Long.parseLong(env.getProperty("token.expiration-date")))) // 유효기간
                 .signWith(SignatureAlgorithm.HS256, env.getProperty("token.secret")) // 암호화 방식
                 .compact();
 

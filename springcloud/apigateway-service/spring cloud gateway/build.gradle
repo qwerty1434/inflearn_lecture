@@ -30,6 +30,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '3.0.2'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+	compileOnly("org.springframework.boot:spring-boot-starter-actuator")
 
 }
 

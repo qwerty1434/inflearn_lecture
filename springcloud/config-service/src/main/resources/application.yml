@@ -3,9 +3,17 @@ server:
 spring:
   application:
     name: config-service
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+          search-locations: # 파일위치
         git:
 #          uri: file:///C:/Users/SSAFY/Desktop/inflearn_lecture/springcloud/git-local-repo
-          uri: file:///C:/Users/SSAFY/Desktop/git-local-repo
+#          uri: file:///C:/Users/SSAFY/Desktop/git-local-repo # 노트북
+#          uri: file:///C:/Users/qwert/OneDrive/바탕 화면/git-local-repo #데스크탑
+          uri: https://github.com/qwerty1434/spring-cloud-config
+#          username: 아이디
+#          password: 비밀번호

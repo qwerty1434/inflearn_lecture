@@ -1,0 +1,6 @@
+encrypt:
+  key: abcdefghijklmnopqrstuvwxyz0123456789
+#  key-sotre:
+#    location: file:///C:/Users/SSAFY/Desktop/inflearn_lecture/springcloud/keystore/apiEncryptionKey.jks
+#    password: test1234
+#    alias: apiEncryptionKey

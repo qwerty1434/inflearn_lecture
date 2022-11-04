@@ -3,13 +3,18 @@ server:
 spring:
   application:
     name: config-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   profiles:
     active: native
   cloud:
     config:
       server:
         native:
-          search-locations: # 파일위치
+          search-locations: file:///C:/Users/SSAFY/Desktop/native-file-repo # 파일위치
         git:
 #          uri: file:///C:/Users/SSAFY/Desktop/inflearn_lecture/springcloud/git-local-repo
 #          uri: file:///C:/Users/SSAFY/Desktop/git-local-repo # 노트북
@@ -17,3 +22,8 @@ spring:
           uri: https://github.com/qwerty1434/spring-cloud-config
 #          username: 아이디
 #          password: 비밀번호
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,busrefresh

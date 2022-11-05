@@ -65,7 +65,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                         + Long.parseLong(env.getProperty("token.expiration-date")))) // 유효기간
                 .signWith(SignatureAlgorithm.HS256, env.getProperty("token.secret")) // 암호화 방식
                 .compact();
-
+        System.out.println(env.getProperty("token.secret")+"@@@@@@@@@@@@@@@@@@@@@");
         // 토큰을 헤더에 넣어 전달, 정상적인 토큰인지 확인하기 위해 userId도 같이 넘김
         response.addHeader("token",token);
         response.addHeader("userId",userDetails.getUserId());

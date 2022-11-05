@@ -55,9 +55,11 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
         // 토큰을 복호화하고 거기서 꺼낸 payload의 값이 정상인지 확인
         try{
+            System.out.println(env.getProperty("token.secret")+"!!!!!!!!!!!!!!!");
             subject = Jwts.parser().setSigningKey(env.getProperty("token.secret")) // 복호화
                     .parseClaimsJws(jwt).getBody()
                     .getSubject();
+            System.out.println(subject);
         } catch(Exception ex){
             returnValue = false;
         }

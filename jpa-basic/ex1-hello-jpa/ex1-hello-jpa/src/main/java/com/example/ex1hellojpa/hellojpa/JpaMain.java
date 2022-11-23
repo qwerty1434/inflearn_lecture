@@ -18,6 +18,20 @@ public class JpaMain {
             member.setId(1L);
             member.setName("HelloA");
             em.persist(member); // member저장
+            em.flush();
+            em.clear();
+
+            // find vs getReference
+//            Member findMember = em.find(Member.class, member.getId());
+//            System.out.println("findMemberId = " + findMember.getId());
+//            System.out.println("findMemberName = " + findMember.getName());
+
+            Member findMember = em.getReference(Member.class, member.getId());
+            System.out.println("findMemberId = " + findMember.getId());
+            System.out.println("findMemberName = " + findMember.getName());
+
+
+
             tx.commit();
         } catch (Exception e){
             tx.rollback();

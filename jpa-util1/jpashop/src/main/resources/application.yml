@@ -1,8 +1,10 @@
 spring:
+  profiles:
+    include: API-KEY
   datasource:
     url: jdbc:mysql://localhost:3306/jpashop
-    username: ssafy
-    password: ssafy
+    username: ${MYSQL_ID}
+    password: ${MYSQL_PW}
   jpa:
     hibernate:
       ddl-auto: create

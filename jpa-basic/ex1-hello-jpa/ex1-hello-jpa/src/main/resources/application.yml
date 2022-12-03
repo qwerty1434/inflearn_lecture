@@ -1,8 +1,10 @@
 spring:
+  profiles:
+    include: API-KEY
   datasource:
     url: jdbc:mysql://localhost:3306/jpa_test?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
-    username: ssafy
-    password: 8384
+    username: ${MYSQL_ID}
+    password: ${MYSQL_PW}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     properties:

@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,14 @@ public class ItemService {
     @Transactional
     public void saveItem(Item item){
         itemRepository.save(item);
+    }
+
+    @Transactional
+    public void updateItem(Long itemId, Book param){
+        Item findItem = itemRepository.findOne(itemId); // DB에서 값을 찾아왔기 때문에 영속 상태입니다.
+        findItem.setPrice(param.getPrice());
+        findItem.setName(param.getName());
+        // itemRepository.save(findItem); // 변경감지가 작동되기 때문에 save가 필요하지 않습니다.
     }
 
     public List<Item> findItems(){

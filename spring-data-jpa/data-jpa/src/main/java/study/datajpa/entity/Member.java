@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // proxy에서 사용할려면 protected이상이 필요합니다
 @ToString(of = {"id", "username", "age"}) // 해당 변수들만 toString으로 출력하겠다는 의미입니다. team을 추가하면 순환참조가 일어날 수 있습니다.
-public class Member {
+public class Member extends JpaBaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "member_id")

@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-@RequestMapping("/validation/v2/items")
+@RequestMapping("/validation/v1/items")
 @RequiredArgsConstructor
 public class ValidationItemControllerV1 {
 
@@ -26,20 +26,20 @@ public class ValidationItemControllerV1 {
     public String items(Model model) {
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
-        return "validation/v2/items";
+        return "validation/v1/items";
     }
 
     @GetMapping("/{itemId}")
     public String item(@PathVariable long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "validation/v2/item";
+        return "validation/v1/item";
     }
 
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("item", new Item());
-        return "validation/v2/addForm";
+        return "validation/v1/addForm";
     }
 
     @PostMapping("/add")
@@ -68,7 +68,7 @@ public class ValidationItemControllerV1 {
         if(!errors.isEmpty()){ // 에러가 존재하면
             log.info("errors = {}",errors);
             model.addAttribute("errors",errors); // 에러값 넣기
-            return "validation/v2/addForm";// 다시 입력폼으로 이동
+            return "validation/v1/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -76,20 +76,20 @@ public class ValidationItemControllerV1 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:/validation/v2/items/{itemId}";
+        return "redirect:/validation/v1/items/{itemId}";
     }
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "validation/v2/editForm";
+        return "validation/v1/editForm";
     }
 
     @PostMapping("/{itemId}/edit")
     public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
         itemRepository.update(itemId, item);
-        return "redirect:/validation/v2/items/{itemId}";
+        return "redirect:/validation/v1/items/{itemId}";
     }
 
 }

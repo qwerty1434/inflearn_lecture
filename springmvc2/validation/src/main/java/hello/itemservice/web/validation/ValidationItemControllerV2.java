@@ -21,31 +21,36 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-@RequestMapping("validation/v1//items")
+@RequestMapping("validation/v2/items")
 @RequiredArgsConstructor
 public class ValidationItemControllerV2 {
     // 주입받기
-    private final ItemValidator itemValidator;
     private final ItemRepository itemRepository;
+    private final ItemValidator itemValidator;
 
+    // 해당 컨트롤러가 호출될때마다 항상 먼저 호출됩니다.
+    @InitBinder
+    public void init(WebDataBinder dataBinder){
+        dataBinder.addValidators(itemValidator);
+    }
     @GetMapping
     public String items(Model model) {
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
-        return "validation/v1/items";
+        return "validation/v2/items";
     }
 
     @GetMapping("/{itemId}")
     public String item(@PathVariable long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "validation/v1/item";
+        return "validation/v2/item";
     }
 
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("item", new Item());
-        return "validation/v1/addForm";
+        return "validation/v2/addForm";
     }
 
 //    @PostMapping("/add")
@@ -74,7 +79,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -82,7 +87,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 //    @PostMapping("/add")
@@ -115,7 +120,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -123,7 +128,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 //    @PostMapping("/add")
@@ -158,7 +163,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -166,7 +171,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 //    @PostMapping("/add")
@@ -198,7 +203,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -206,7 +211,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 
@@ -222,7 +227,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -230,15 +235,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
-    }
-
-
-
-    // 해당 컨트롤러가 호출될때마다 항상 먼저 호출됩니다.
-    @InitBinder
-    public void init(WebDataBinder dataBinder){
-        dataBinder.addValidators(itemValidator);
+        return "redirect:validation/v2/items/{itemId}";
     }
 
     @PostMapping("/add")
@@ -249,7 +246,7 @@ public class ValidationItemControllerV2 {
         if(bindingResult.hasErrors()){ // 에러가 존재하면
             log.info("errors = {}",bindingResult);
             // bindingResult는 직접 model에 담지 않아도 자동으로 함께 넘어갑니다.
-            return "validation/v1/addForm";// 다시 입력폼으로 이동
+            return "validation/v2/addForm";// 다시 입력폼으로 이동
         }
 
 
@@ -257,7 +254,7 @@ public class ValidationItemControllerV2 {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 
@@ -267,13 +264,13 @@ public class ValidationItemControllerV2 {
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "validation/v1/editForm";
+        return "validation/v2/editForm";
     }
 
     @PostMapping("/{itemId}/edit")
     public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
         itemRepository.update(itemId, item);
-        return "redirect:validation/v1//items/{itemId}";
+        return "redirect:validation/v2/items/{itemId}";
     }
 
 }

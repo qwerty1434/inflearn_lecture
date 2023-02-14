@@ -1,4 +1,4 @@
-package hello.advanced.trace.app.v2;
+package hello.advanced.app.v2;
 import hello.advanced.trace.TraceStatus;
 import hello.advanced.trace.hellotrace.HelloTraceV2;
 import lombok.RequiredArgsConstructor;

@@ -1,24 +1,28 @@
-package hello.advanced.app.v4;
+package hello.advanced.app.v5;
+import hello.advanced.trace.callback.TraceCallback;
+import hello.advanced.trace.callback.TraceTemplate;
 import hello.advanced.trace.logtrace.LogTrace;
-import hello.advanced.trace.template.AbstractTemplate;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
-@RequiredArgsConstructor
-public class OrderControllerV4 {
-    private final OrderServiceV4 orderService;
-    private final LogTrace trace;
+public class OrderControllerV5 {
+    private final OrderServiceV5 orderService;
+    private final TraceTemplate template;
+    // TraceTemplate를 위해 LogTrace를 주입받고 생성했다.
+    public OrderControllerV5(OrderServiceV5 orderService, LogTrace trace) {
+        this.orderService = orderService;
+        this.template = new TraceTemplate(trace);
+    }
 
-    @GetMapping("/v4/request")
+    @GetMapping("/v5/request")
     public String request(String itemId) {
-        AbstractTemplate<String> template = new AbstractTemplate<>(trace) {
-            @Override
-            protected String call() {
-                orderService.orderItem(itemId);
-                return "ok";
-            }
-        };
-        return template.execute("OrderController.request()");
+        return template.execute("OrderController.request()", new
+                TraceCallback<>() {
+                    @Override
+                    public String call() {
+                        orderService.orderItem(itemId);
+                        return "ok";
+                    }
+                });
     }
 }

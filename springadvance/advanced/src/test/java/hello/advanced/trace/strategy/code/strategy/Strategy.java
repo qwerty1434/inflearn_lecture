@@ -1,2 +1,5 @@
-package hello.advanced.trace.strategy.code.strategy;public interface Strategy {
+package hello.advanced.trace.strategy.code.strategy;
+
+public interface Strategy {
+    void call();
 }

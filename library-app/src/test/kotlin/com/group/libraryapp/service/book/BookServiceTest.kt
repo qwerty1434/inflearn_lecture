@@ -16,14 +16,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import java.lang.IllegalArgumentException
 
 @SpringBootTest
 class BookServiceTest @Autowired constructor(
-    private val bookService: BookService,
-    private val bookRepository: BookRepository,
-    private val userRepository: UserRepository,
-    private val userLoanHistoryRepository: UserLoanHistoryRepository,
+        private val bookService: BookService,
+        private val bookRepository: BookRepository,
+        private val userRepository: UserRepository,
+        private val userLoanHistoryRepository: UserLoanHistoryRepository,
 ){
     @AfterEach
     fun clean(){

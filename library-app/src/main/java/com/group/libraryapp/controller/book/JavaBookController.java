@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BookController {
+public class JavaBookController {
 
   private final JavaBookService bookService;
 
-  public BookController(JavaBookService bookService) {
+  public JavaBookController(JavaBookService bookService) {
     this.bookService = bookService;
   }
 

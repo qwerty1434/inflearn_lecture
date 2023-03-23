@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.group.libraryapp.JunitTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-22T08:52:33" hostname="DESKTOP-VDJ93H2" time="0.002">
+<testsuite name="com.group.libraryapp.JunitTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-23T12:44:06" hostname="DESKTOP-VDJ93H2" time="0.004">
   <properties/>
-  <testcase name="test1()" classname="com.group.libraryapp.JunitTest" time="0.001"/>
+  <testcase name="test1()" classname="com.group.libraryapp.JunitTest" time="0.003"/>
   <testcase name="test2()" classname="com.group.libraryapp.JunitTest" time="0.001"/>
   <system-out><![CDATA[모든 테스트 시작 전
 각 테스트 시작 전

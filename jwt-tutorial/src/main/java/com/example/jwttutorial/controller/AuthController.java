@@ -38,7 +38,7 @@ public class AuthController {
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
 
-        // authentication 토큰을 이용해 authenticate 메서드가 실행될 때 CustomUserDetailsService의 loadUserByUSername이 실행됨.
+        // authentication 토큰을 이용해 authenticate 메서드가 실행될 때 CustomUserDetailsService의 loadUserByUsername이 실행됨.
         // 실행된 결과값을 가지고 authentication 결과값을 생성하게 됨
 
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);

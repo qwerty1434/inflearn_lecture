@@ -35,3 +35,5 @@
 - 자바 개발자를 위한 코틀린 입문(Java to Kotlin Starter Guide)
 
 - 실전! 코틀린과 스프링 부트로 도서관리 애플리케이션 개발하기 (Java 프로젝트 리팩토링)
+
+- Practical Testing: 실용적인 테스트 가이드

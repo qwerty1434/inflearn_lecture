@@ -1,7 +1,6 @@
 package sample.cafekiosk.spring.api.service.order;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.servlets.DefaultServlet;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
 import sample.cafekiosk.spring.api.service.order.response.OrderResponse;
 import sample.cafekiosk.spring.domain.order.OrderRepository;
@@ -155,7 +154,7 @@ class OrderServiceTest {
                 );
     }
 
-    @DisplayName("재고와 부족한 상품으로 주문을 실행하려는 경우 예외가 발생한다.")
+    @DisplayName("재고가 부족한 상품으로 주문을 실행하려는 경우 예외가 발생한다.")
     @Test
     void createOrderWithNoStock(){
         // given

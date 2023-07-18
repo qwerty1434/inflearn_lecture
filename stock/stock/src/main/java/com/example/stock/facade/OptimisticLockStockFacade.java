@@ -18,7 +18,6 @@ public class OptimisticLockStockFacade {
                 optimisticLockStockService.decrease(id,quantity);
                 break;
             } catch (Exception e){
-                System.out.println("재시도 대기@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 Thread.sleep(50);
             }
         }

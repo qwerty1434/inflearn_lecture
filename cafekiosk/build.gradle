@@ -33,8 +33,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    //h2
+    // h2
     runtimeOnly 'com.h2database:h2'
+
+    // guaba
+    implementation("com.google.guava:guava:31.1-jre")
 
 }
 
